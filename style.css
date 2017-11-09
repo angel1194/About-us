@@ -1,0 +1,94 @@
+*{
+  margin: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+body{
+  background : #fff;
+  /*background : #20B2AA; */
+}
+a{
+    font-family: 'Exo 2', sans-serif;
+}
+p{
+    font-family: 'Arvo', serif;
+    text-align: justify;
+    font-size: 15px;
+}
+div{
+
+}
+.container{
+}
+  .header{
+    background: #58FAAC;
+  }
+
+    .menu{
+      background: rgb(0, 0, 0, .5);
+      display: flex;
+      flex-direction: row nowrap;
+      height: 85px;
+      word-spacing: normal;
+      border-bottom:  1px solid rgba(255, 255, 255, .5);
+    }
+      .logo{
+        flex: 1 1 auto;
+
+      }
+      .nav{
+        flex: 5 1 auto;
+
+      }
+      .social{
+        flex: 0 1 auto;
+      }
+
+
+  .section{
+    background: #04B4AE;
+  }
+    .articulos{
+      background: red;
+      display: flex;
+      flex-direction: column;
+
+    }
+      .articulo{
+       background: green;
+       flex: 1 1 auto;
+      }
+
+  .texto-principal{
+      background: #04B4AE;
+      display: flex;
+      flex-direction: row;
+  }
+    h4{
+      background: pink;
+      flex: 1 1 auto;
+      width: 35%;
+
+    }
+    .contenedor-imagen{
+      background: blue;
+      display: flex;
+      flex-wrap: wrap;
+      width: 35%;
+      flex: 1 1 auto;
+
+    }
+
+
+
+
+  .footer {
+    background: #fff;
+  }
+.logotipo{
+    display: flex;
+    position: relative;
+    bottom: 50px;
+  }
+
+/* Add Things in CSS  */
