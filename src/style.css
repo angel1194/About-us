@@ -23,6 +23,9 @@ a{
   display: flex;
   flex-flow: column nowrap;
 }
+.texto-principal{
+  background: green ;
+}
 
 .menu{
   background: rgba(0,0,0,.1);
