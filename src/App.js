@@ -24,16 +24,28 @@ const Info = styled.p`
  font-family : Roboto;
  text-align : justify;
  margin: 0px 25px 0px 25px;
- display : none;
+ display : block;
  &:hover {
-    color: black;
-    display : block;
+    color: blue;
   }
 `;
 
 
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state ={
+      visible : false
+    }
+  }
+  handleClick(e){
+    e.preventDefault();
+    this.setState({
+      visible : !this.state.visible
+    })
+  }
+
   render() {
     return (
         <Contenedor className="App">
@@ -76,14 +88,21 @@ class App extends Component {
 
            <Article>
            <Img src="http://creaturviajes.com/wp-content/uploads/2017/09/Portada1.jpg" />
-           <Title> Ejemplos de uso</Title>
-           <Info>La utilización de literales de plantillas etiquetadas
+           <Title onClick={this.handleClick.bind(this)}> Ejemplos de uso</Title>
+           {this.state.visible ?
+             <Info>La utilización de literales de plantillas etiquetadas
             (una adición reciente a JavaScript) y el poder de CSS ,
              le styled-componentspermite escribir código CSS real para
              darle un estilo a sus componentes. También elimina el mapeo
               entre componentes y estilos. ¡Usar componentes como una construcción
               de estilo de bajo nivel no podría ser más fácil!
               </Info>
+              : ""}
+
+
+
+
+
            </Article>
           </Articulos>
 
