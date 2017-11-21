@@ -1,38 +1,45 @@
 import styled from 'styled-components';
 
 const Section = styled.section`
-display: flex
-`;
-const Article = styled.article`
-    width : 35%;
-    margin : 10px 60px 0px 0px;
-    background:#E0FFFF;
-    flex: 1 1 40%;
+  display: flex;
+  background : red;
+  width : 100%;
 `;
 
 const Articulos = styled.div`
   display: flex;
   flex-flow : row wrap;
+  flex : 2 1 auto;
   width : 75%;
-  justify-content: center;
 `;
+
+const Article = styled.article`
+    background:yellow;
+    flex : 1 1 25%;
+    border-style: solid double;
+    justify-content : space-between;
+    margin-left: 120px;
+    position : relative;
+    left : -25px;
+    
+`;
+
 const Aside = styled.div`
     flex: 1 1 25%;
     background:#E0FFFF;
     margin: 13px 0px 0px 0px;
-    transition-property: opacity, left;
- transition-duration: 3s, 5s, 2s, 1s;
+
 `;
 const Publicidad = styled.div`
       border-style: solid;
 `;
 const Img = styled.img`
-  width:400px;
-  height:300px;
+  width:265px;
+  height:265px;
   border-radius: 6px !important;
   margin:auto;
   position: relative;
-  right:-13px;
+  right:-2px;
 `;
 
 const ImgLog = styled.img`
