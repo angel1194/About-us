@@ -25,11 +25,18 @@ const Contenedor = styled.div  `
   font-family : Roboto;
   text-align : justify;
   margin: 0px 25px 0px 25px;
-  display : block;
-  &:hover {
-     color: blue;
-   }
+  word-wrap: break-word;
+  
  `;
+
+ const Conte = styled.div`
+   width : 100%;
+   height: 100px;
+   overflow: scroll;
+   background : pink;
+ `;
+
+
 
 class Boxes extends Component {
   constructor(props){
@@ -50,9 +57,12 @@ class Boxes extends Component {
         <Contenedor className="App">
         <Title onClick={this.handleClick.bind(this)}> {this.props.title}</Title>
         {this.state.visible ?
-            <Info>
-            {this.props.text}
-           </Info>
+          <Conte>
+          <Info>
+          {this.props.text}
+          {this.props.tex2}
+         </Info>
+           </Conte>
            : ""}
         </Contenedor>
     );

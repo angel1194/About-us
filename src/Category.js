@@ -11,6 +11,7 @@ const Articulos = styled.div`
   flex-flow : row wrap;
   flex : 2 1 auto;
   width : 75%;
+  lign-content: space-evenly;
 `;
 
 const Article = styled.article`
@@ -19,9 +20,18 @@ const Article = styled.article`
     border-style: solid double;
     justify-content : space-between;
     margin-left: 120px;
-    position : relative;
     left : -25px;
-    
+    display : table;
+    width : 30%;
+`;
+const ArticleExample = styled.article`
+    background:yellow;
+    flex : 1 1 25%;
+    border-style: solid double;
+    justify-content : space-between;
+    margin-left: 120px;
+    left : -25px;
+    overflow :hidden;
 `;
 
 const Aside = styled.div`
@@ -42,6 +52,7 @@ const Img = styled.img`
   right:-2px;
 `;
 
+
 const ImgLog = styled.img`
   width:175px;
   height:100px;
@@ -60,4 +71,4 @@ const ImgPubli = styled.img`
   right:-25px;
 `;
 
-export { Section, Article, Articulos,Img, Aside, Publicidad , ImgLog ,ImgPubli};
+export { Section, Article, Articulos,Img, Aside, Publicidad , ImgLog ,ImgPubli,ArticleExample};

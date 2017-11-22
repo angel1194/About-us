@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import {Section, Article, Articulos, Aside,Img, ImgLog , ImgPubli} from './Category.js';
+import {Section, Article, Articulos, Aside,Img, ImgLog , ImgPubli,ArticleExample} from './Category.js';
 import Publicidad from './Publicidad.js'
 import Boxes from './Boxes.js'
 
@@ -12,8 +12,26 @@ const Contenedor = styled.div  `
   flex-flow: row wrap;
   flex-direction : colum;
  `;
+ const Img6 = styled.img`
+   width:295px;
+   height:265px;
+   border-radius: 6px !important;
+   margin:auto;
+   position: relative;
+   right:-2px;
+   :hover {
+     -webkit-transform:rotateZ (-30deg);
+   -ms-transform:rotateZ (-30deg);
+   transform:rotateZ (-30deg);
+    }
 
 
+ `;
+ const Parrafo = styled.p  `
+ transition-duration: 5s;
+
+       }
+  `;
 const Footer = styled.div`
  background : red;
  width : 100%;
@@ -28,30 +46,25 @@ render() {
             <Articulos>
 
              <Article>
-               <Img src="http://creaturviajes.com/wp-content/uploads/2017/06/pantalla.jpg" />
-              <Boxes  title="TITULO" text="Los antecedentes del conflicto se remontan a la situación de México bajo el porfiriato. Desde 1876 ejerció el poder en el país de manera dictatorial. La situación se prolongó 31 años, durante los cuales México experimentó un notable crecimiento económico y tuvo estabilidad política. Estos logros se realizaron con altos costos económicos y sociales, que pagaron los estratos menos favorecidos de la sociedad y la oposición política al régimen de Díaz. Durante la primera década del siglo XX estallaron varias crisis en diversas esferas de la vida nacional, que reflejaban el creciente descontento de algunos sectores con el porfiriato."
-
+               <Img  src="http://creaturviajes.com/wp-content/uploads/2017/06/pantalla.jpg" />
+              <Boxes  title="TITULO" text="Jesse Enlace permanente para comentar # 2 DE JUNIO DE 2013 Estoy de acuerdo, Chris Coyier rara vez echa de menos un detalle, que es una de las razones por las que css-tricks.com es uno de esos sitios 'ir a primero' para mí. Eso, y él usa un lenguaje práctico. He visto un par de sus screencasts de iTunes (podcasts de video) y es genial escuchar la voz de estos tutoriales."
               />
              </Article>
-
              <Article>
-              <Img src="http://creaturviajes.com/wp-content/uploads/2017/06/pantalla.jpg" />
-              <Boxes  title="TITULO" text="Los antecedentes del conflicto se remontan a la situación de México bajo el porfiriato. Desde 1876 ejerció el poder en el país de manera dictatorial. La situación se prolongó 31 años, durante los cuales México experimentó un notable crecimiento económico y tuvo estabilidad política. Estos logros se realizaron con altos costos económicos y sociales, que pagaron los estratos menos favorecidos de la sociedad y la oposición política al régimen de Díaz. Durante la primera década del siglo XX estallaron varias crisis en diversas esferas de la vida nacional, que reflejaban el creciente descontento de algunos sectores con el porfiriato."
+               <Img  src="http://creaturviajes.com/wp-content/uploads/2017/06/pantalla.jpg" />
+              <Boxes  title="TITULO" text="Jesse Enlace permanente para comentar # 2 DE JUNIO DE 2013 Estoy de acuerdo, Chris Coyier rara vez echa de menos un detalle, que es una de las razones por las que css-tricks.com es uno de esos sitios 'ir a primero' para mí. Eso, y él usa un lenguaje práctico. He visto un par de sus screencasts de iTunes (podcasts de video) y es genial escuchar la voz de estos tutoriales. "  tex2="DHORTÓJGRÁFIAtAMBIÉN PUEDEN USARSE PONIENDO EL TEXTO EN NEGRITA, CURSIVA BIÉN PUEDEN USARSE PONIENDO EL TEXTO EN NEGRITA, CURSIVABIÉN PUEDEN USARSE PONIENDO EL TEXTO EN NEGRITA, CURSIVABIÉN PUEDEN USARSE PONIENDO EL TEXTO EN NEGRITA, CURSIVABIÉN PUEDEN USARSE PONIENDO EL TEXTO EN NEGRITA, CURSIVA Y LOS COLORES DEL ARCOIRIS."
               />
              </Article>
 
-            <Article>
-              <Img src="http://creaturviajes.com/wp-content/uploads/2017/06/pantalla.jpg" />
-             <Boxes  title="TITULO" text="Los antecedentes del conflicto se remontan a la situación de México bajo el porfiriato. Desde 1876 ejerció el poder en el país de manera dictatorial. La situación se prolongó 31 años, durante los cuales México experimentó un notable crecimiento económico y tuvo estabilidad política. Estos logros se realizaron con altos costos económicos y sociales, que pagaron los estratos menos favorecidos de la sociedad y la oposición política al régimen de Díaz. Durante la primera década del siglo XX estallaron varias crisis en diversas esferas de la vida nacional, que reflejaban el creciente descontento de algunos sectores con el porfiriato."
-             />
-            </Article>
+             <ArticleExample>
+               <Img6 src="http://creaturviajes.com/wp-content/uploads/2017/06/pantalla.jpg" />
+               <Parrafo>Funny thing about that… IE 10+ is currently the only browser that supports grid layout, so we can thankfully check them off of our list. :D As I understand it, Microsoft was the major player behind this standard. Basically, they took their WPF grid layout and ported it to the web, which is why they are so far ahead. They already had the code. Anyway, I think mainline chrome supports it behind the experimental flag. Really, I think we’re waiting on Safari and Mozilla at this point. CSS grid will be a wonderful thing when we can finally use it. </Parrafo>
+             </ArticleExample>
 
-
-           <Article>
-            <Img src="http://creaturviajes.com/wp-content/uploads/2017/06/pantalla.jpg" />
-            <Boxes  title="TITULO" text="Los antecedentes del conflicto se remontan a la situación de México bajo el porfiriato. Desde 1876 ejerció el poder en el país de manera dictatorial. La situación se prolongó 31 años, durante los cuales México experimentó un notable crecimiento económico y tuvo estabilidad política. Estos logros se realizaron con altos costos económicos y sociales, que pagaron los estratos menos favorecidos de la sociedad y la oposición política al régimen de Díaz. Durante la primera década del siglo XX estallaron varias crisis en diversas esferas de la vida nacional, que reflejaban el creciente descontento de algunos sectores con el porfiriato."
-            />
-           </Article>
+             <ArticleExample>
+               <Img6 src="http://creaturviajes.com/wp-content/uploads/2017/06/pantalla.jpg" />
+               <Parrafo>cdddddddddddddddddddddd </Parrafo>
+             </ArticleExample>
           </Articulos>
 
             <Aside>
