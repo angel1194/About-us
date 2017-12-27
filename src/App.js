@@ -12,79 +12,102 @@ class App extends Component {
         fecharelacion : 'unknow',
         edad :'unknow'
       },
-      empleados :[{
+      empleados :[
+      {
         avatar : 'https://www.shareicon.net/data/256x256/2017/01/06/868320_people_512x512.png',
-        nombre : 'Claudia',
+        nombre : 'persona 1',
         puesto : 'DBA',
         fecharelacion : '15-02-89',
         edad :'39'
       },
       {
         avatar : 'https://www.shareicon.net/data/256x256/2017/01/06/868320_people_512x512.png',
-        nombre : 'Desconocido 2',
-        puesto : 'Desarrollador',
+        nombre : 'persona 2',
+        puesto : 'DBA',
         fecharelacion : '15-02-89',
-        edad :'20'
+        edad :'39'
       },
       {
         avatar : 'https://www.shareicon.net/data/256x256/2017/01/06/868320_people_512x512.png',
-        nombre : 'Desconocido 3',
-        puesto : 'Diseñador web',
+        nombre : 'persona 3',
+        puesto : 'D2',
         fecharelacion : '15-02-89',
-        edad :'45'
+        edad :'39'
       },
       {
         avatar : 'https://www.shareicon.net/data/256x256/2017/01/06/868320_people_512x512.png',
-        nombre : 'Desconocido 4',
-        puesto : 'Soporte tecnico',
+        nombre : 'persona 4',
+        puesto : 'DBA',
         fecharelacion : '15-02-89',
-        edad :'25'
+        edad :'39'
+      }
+    ],
+    textoSimulado : [
+      {
+        parrafo : 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.'
       },
       {
-        avatar : 'https://www.shareicon.net/data/256x256/2017/01/06/868320_people_512x512.png',
-        nombre : 'Desconocido 5',
-        puesto : 'Consultor',
-        fecharelacion : '15-02-89',
-        edad :'35'
+        parrafo : 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.'
+      },
+      {
+        parrafo : 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.'
+      },
+      {
+        parrafo : 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.'
       }
     ]
+
     }
   }
-  ChangeJob (empleados){
-    const state = this.state;
-    state.empleadosOpen =empleados;
-    this.setState(state);
+  ChangeEmployee(set){
+    this.state.empleadosOpen=set;
+    this.setState(this.state);
   }
+
+
+
   render() {
     const empleados = this.state.empleados;
     const empleadosOpen = this.state.empleadosOpen;
+    const textoSimulado = this.state.textoSimulado;
+
+
+
     return (
-      <div id="contenedor">
-        <div id="lista-empleados">
-          <ul>
-            {empleados.map((empleado, i)=> <EmpleadoItem OnClick={()=>{this.ChangeJob(empleado)}} key={i} datoempleado={empleado} /> )}
-          </ul>
-        </div>
-        <div id="flexContainer">
-            <Credencial empleado={empleadosOpen}/>
+      <div>
+        <div id="contenedor">
+          <div id="lista-empleados">
+            <ul>
+              {empleados.map((empleado1, j)=><Empleado OnPress={()=>{this.ChangeEmployee(empleado1)}} key={j} empleado={empleado1.nombre}/>)}
+            </ul>
+          </div>
+
+          <div id="flexContainer">
+            <Credencial  empleado={empleadosOpen}/>
         </div>
       </div>
+
+      <div id="BoxContainer">
+        {textoSimulado.map((texto , i)=><Parrafo  key={i} parrafos={texto.parrafo}/>)}
+      </div>
+
+      </div>
+
+
     );
   }
 }
 
-
-class EmpleadoItem extends Component {
-  render() {
-    const datoempleado = this.props.datoempleado
-    return (
-      <li onClick={this.props.OnClick} className="empleado-item">
-        <label>Nombre: {datoempleado.nombre}</label>
-      <label>Puesto :{datoempleado.puesto}</label>
-      </li>
-    );
+class Empleado extends Component {
+  render(){
+    const nombreEmpleado = this.props.empleado;
+    return(
+      <li  onClick={this.props.OnPress}>{nombreEmpleado}</li>
+    )
   }
 }
+
+
 
 class Credencial extends Component {
   render(){
@@ -92,17 +115,133 @@ class Credencial extends Component {
     return(
       <div id="credencial">
         <div id="imagen">
-          <img src={empleado.avatar} />
+          <img  src={empleado.avatar}/>
         </div>
         <div id="contenido-credencial">
-            <h2><label>Nombre:</label>{empleado.nombre}</h2>
-            <p><label>Puesto:</label> {empleado.puesto}</p>
-          <span><label>Relacion Laboral :</label>{empleado.fecharelacion} </span>
-          <span><label>Edad :</label>{empleado.edad} </span>
+          <h3>{empleado.nombre}</h3>
+          <h4>{empleado.puesto}</h4>
+          <h4>{empleado.fecharelacion}</h4>
+          <h4>{empleado.edad}</h4>
         </div>
       </div>
     );
   }
 }
+
+class Parrafo extends Component {
+  constructor(props) {
+    super(props);
+      this.state={
+        visible:false
+      }
+      this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick(){
+   this.setState({
+     visible : !this.state.visible
+   })
+ }
+
+  render(){
+    const Descripcion = this.props.parrafos
+    return(
+      <div>
+      {this.state.visible && <p className="border">{Descripcion}</p>}
+      <button onClick={this.handleClick}>Mostrar</button>
+      </div>
+
+    )
+  }
+}
+
+/*
+<li>
+        <h3 onClick={this.handleClick.bind(this)}> {this.props.title}</h3>
+        <ul className={this.state.visible ? 'visible' : 'no-visible'}>
+        <div><p>{this.props.text}</p> </div>
+        </ul>
+      </li>
+      </div>
+
+*/
+
+
+/*
+class ContentInf extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      visible: false
+    }
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick(){
+    this.setState({
+      visible: !this.state.visible
+    })
+  }
+  render() {
+    return (
+      <Contenedor>
+        <Read onClick={this.handleClick}>Leer más</Read>
+        {this.state.visible && <Info>{this.props.text}</Info>}
+      </Contenedor>
+    );
+  }
+}
+*/
+
+
+
+/*
+testing(){
+   return Object.keys(data).map((key,i)=>{
+    return(
+      <div key={i}>
+        <DivTop><h4 className="Title">{key} </h4></DivTop>
+        {data[key].map((tour,j)=>{
+          return(
+            <div className="containerFlex" key={j}>
+              <ColumMarginLeft>
+                <Img src={tour.image} />
+              </ColumMarginLeft>
+              <ColumMarginCenter className="parrafo">
+              <Labels>Descripcion : {tour.descripcion} </Labels>
+              {tour.text}
+              </ColumMarginCenter>
+              <ColumMarginRight>
+                  <div className="containerSelect">
+
+                    <label className="right">Adultos</label>
+                    <SelectTour>
+                        <option>1</option>
+                        <option>2</option>
+                      </SelectTour>
+                    <label className="right">Niños</label>
+                    <SelectTour>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                      <option>9</option>
+                    </SelectTour>
+
+                      <ButtonSearchTour onClick={()=>alert('esperando función')}>Agregar !!</ButtonSearchTour>
+                  </div>
+                </ColumMarginRight>
+
+            </div>
+          )
+        })}
+      </div>
+    )
+  })
+}*/
 
 export default App;
