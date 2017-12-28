@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import styled from 'styled-components';
 
 class App extends Component {
   constructor(props){
@@ -47,13 +48,13 @@ class App extends Component {
         parrafo : 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.'
       },
       {
-        parrafo : 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.'
+        parrafo : 'ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.'
       },
       {
-        parrafo : 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.'
+        parrafo : 'amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.'
       },
       {
-        parrafo : 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.'
+        parrafo : 'consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.'
       }
     ]
 
@@ -72,23 +73,35 @@ class App extends Component {
     const textoSimulado = this.state.textoSimulado;
 
 
+/*
+<div id="contenedor">
+  <div id="lista-empleados">
+    <ul>
+      {empleados.map((empleado1, j)=><Empleado OnPress={()=>{this.ChangeEmployee(empleado1)}} key={j} empleado={empleado1.nombre}/>)}
+    </ul>
+  </div>
 
+  <div id="flexContainer">
+    <Credencial  empleado={empleadosOpen}/>
+  </div>
+</div>
+
+*/
     return (
-      <div>
-        <div id="contenedor">
-          <div id="lista-empleados">
-            <ul>
-              {empleados.map((empleado1, j)=><Empleado OnPress={()=>{this.ChangeEmployee(empleado1)}} key={j} empleado={empleado1.nombre}/>)}
-            </ul>
-          </div>
+      <div id="contenedor">
 
-          <div id="flexContainer">
-            <Credencial  empleado={empleadosOpen}/>
-        </div>
+
+      <div id="BoxContainer">
+        {textoSimulado.map((texto , i)=><Parrafo  key={i} parrafo={texto.parrafo}/>)}
+      </div>
+
+
+      <div id="BoxContainer">
+        <ObjetoArray />
       </div>
 
       <div id="BoxContainer">
-        {textoSimulado.map((texto , i)=><Parrafo  key={i} parrafos={texto.parrafo}/>)}
+        <Formulario/>
       </div>
 
       </div>
@@ -144,104 +157,139 @@ class Parrafo extends Component {
  }
 
   render(){
-    const Descripcion = this.props.parrafos
+    //const Descripcion = this.props.parrafos
     return(
       <div>
-      {this.state.visible && <p className="border">{Descripcion}</p>}
-      <button onClick={this.handleClick}>Mostrar</button>
+      {this.state.visible && <div className="border"> <p>{this.props.parrafo}</p> </div>}
+
+      <div className="borderButton">
+        <button onClick={this.handleClick}>Mostrar</button>
+      </div>
       </div>
 
     )
   }
+
 }
 
 /*
-<li>
-        <h3 onClick={this.handleClick.bind(this)}> {this.props.title}</h3>
-        <ul className={this.state.visible ? 'visible' : 'no-visible'}>
-        <div><p>{this.props.text}</p> </div>
-        </ul>
-      </li>
-      </div>
-
 */
-
-
-/*
-class ContentInf extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      visible: false
+let examplesdat = {
+  "1" : [
+    {
+      "example" : "React Basics",
+      "ilustra" :  "https://cdn-images-1.medium.com/max/512/1*qUlxDdY3T-rDtJ4LhLGkEg.png",
+      "elements1": "props",
+      "elements2": "State",
+      "element3" : "Height and Width",
+      "element4" : "Layout with Flexbox"
+    },
+    {
+      "example" : "React Basics",
+      "ilustra" :  "https://cdn-images-1.medium.com/max/512/1*qUlxDdY3T-rDtJ4LhLGkEg.png",
+      "elements1": "images",
+      "elements2": "Animations",
+      "element3" : "Timers",
+      "element4" : "Accessibility"
     }
-    this.handleClick = this.handleClick.bind(this)
-  }
+  ],
+  "2":[
+    {
+      "example" : "React Basics",
+      "ilustra" :  "https://cdn-images-1.medium.com/max/512/1*qUlxDdY3T-rDtJ4LhLGkEg.png",
+      "elements1": "props",
+      "elements2": "State",
+      "element3" : "Height and Width",
+      "element4" : "Layout with Flexbox"
+    },
+    {
+      "example" : "React Basics",
+      "ilustra" :  "https://cdn-images-1.medium.com/max/512/1*qUlxDdY3T-rDtJ4LhLGkEg.png",
+      "elements1": "images",
+      "elements2": "Animations",
+      "element3" : "Timers",
+      "element4" : "Accessibility"
+    }
+  ]
+}
 
-  handleClick(){
-    this.setState({
-      visible: !this.state.visible
+
+const Img = styled.img`
+  width: 20%;
+`;
+class ObjetoArray extends Component {
+
+  mapeo(){
+    return Object.keys(examplesdat).map((key,i)=>{
+     return(
+       <div key={i}>
+         <div><h4 className="Title">{key} </h4></div>
+       {examplesdat[key].map((elementos,j)=>{
+           return(
+             <div key={j}>
+               <Img src={elementos.ilustra} />
+               <label>Descripcion : {elementos.example} </label>
+             <p>{elementos.elements1}</p>
+             </div>
+           )
+         })}
+       </div>
+     )
     })
   }
-  render() {
-    return (
-      <Contenedor>
-        <Read onClick={this.handleClick}>Leer más</Read>
-        {this.state.visible && <Info>{this.props.text}</Info>}
-      </Contenedor>
-    );
-  }
-}
-*/
-
-
-
-/*
-testing(){
-   return Object.keys(data).map((key,i)=>{
+  mapeo2(){
+  return Object.keys(examplesdat).map((key,z)=>{
     return(
-      <div key={i}>
-        <DivTop><h4 className="Title">{key} </h4></DivTop>
-        {data[key].map((tour,j)=>{
-          return(
-            <div className="containerFlex" key={j}>
-              <ColumMarginLeft>
-                <Img src={tour.image} />
-              </ColumMarginLeft>
-              <ColumMarginCenter className="parrafo">
-              <Labels>Descripcion : {tour.descripcion} </Labels>
-              {tour.text}
-              </ColumMarginCenter>
-              <ColumMarginRight>
-                  <div className="containerSelect">
-
-                    <label className="right">Adultos</label>
-                    <SelectTour>
-                        <option>1</option>
-                        <option>2</option>
-                      </SelectTour>
-                    <label className="right">Niños</label>
-                    <SelectTour>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8</option>
-                      <option>9</option>
-                    </SelectTour>
-
-                      <ButtonSearchTour onClick={()=>alert('esperando función')}>Agregar !!</ButtonSearchTour>
-                  </div>
-                </ColumMarginRight>
-
-            </div>
-          )
-        })}
+      <div key={z}>
+        <h3>{key}</h3>
       </div>
     )
   })
-}*/
+}
+  render(){
+    console.log(this.mapeo());
+    return(
+      <div className="borderBox2">
+        <div>
+          {this.mapeo()}
+        </div>
+        <div>
+          {this.mapeo2()}
+        </div>
+      </div>
+    )
+  }
+}
+
+class Formulario extends Component {
+  constructor(props) {
+    super(props);
+    this.state ={
+      input :  ''
+    }
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(event) {
+   this.setState({value: event.target.value});
+ }
+
+ handleSubmit(event) {
+   alert('Nombre enviado: ' + this.state.value);
+   event.preventDefault();
+ }
+
+  render(){
+    return(
+      <form onSubmit={this.handleSubmit}>
+       <label>
+         Nombre:
+         <input type="text" value={this.state.value} onChange={this.handleChange} />
+       </label>
+       <input type="submit" value="Submit" />
+     </form>
+    )
+  }
+}
 
 export default App;

@@ -25,6 +25,8 @@
 #BoxContainer{
   display: flex;
   border: 1px pink solid;
+  flex-wrap: wrap;
+  flex: 2;
 }
 .empleado-item{
   border: 1px blue solid;
@@ -57,7 +59,29 @@ li {
 
 p {
   color: black !important;
+  text-align: justify;
 }
-.border{
+.borderBox{
   border: 1px green solid;
+  background: red;
+  width: 50%;
+  height: 50%;
+  padding: 0;
+  display: flex;
+  flex: 1;
+}
+.borderButton{
+  background: red;
+  max-width: 10%;
+  padding: 0;
+  display: flex;
+  flex: 1;
+}
+.borderBox2{
+  border: 1px green solid;
+  width: 50%;
+  height: 50%;
+}
+.black{
+  color:  black !important;
 }
